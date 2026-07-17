@@ -319,7 +319,7 @@ button:disabled{
         class="btn-orange"
         onclick="goHome()"
       >
-        🏠️ ナビへ戻る
+        🏠️ 私にもどる対話ナビへ戻る
       </button>
 
     </div>
@@ -400,14 +400,6 @@ const cardFiles = [
 let currentRole = "";
 let currentQuestion = "";
 let currentCards = [];
-
-function getUserName(){
-  return localStorage.getItem("userName") || "あなた";
-}
-
-function getPartnerName(){
-  return localStorage.getItem("partnerName") || "相棒";
-}
 
 function selectRole(){
   currentRole = document.getElementById("roleSelect").value;
@@ -558,32 +550,28 @@ function copyMain(){
     return;
   }
 
-  const userName = getUserName();
-  const partnerName = getPartnerName();
-
   let text = "";
 
-  text += `${partnerName}\n\n`;
-  text += `${userName}だよ💕\n\n`;
+  text += `カードを引いたよ🌿\n\n`;
 
-  text += `今の私の気持ち：\n`;
+  text += `【今の私の気持ち】\n`;
   text += `${getFeeling()}\n\n`;
 
-  text += `質問：\n`;
+  text += `【質問】\n`;
   text += `${currentQuestion}\n\n`;
 
-  text += `カード：\n\n`;
+  text += `【カード】\n`;
 
   currentCards.forEach(card => {
     text += `${formatCard(card)}\n`;
   });
 
-  text += `\nだったよ`;
+  text += `\nだったよ😊`;
 
   navigator.clipboard
     .writeText(text.trim())
     .then(() => {
-      alert("コピーしたよ🐾");
+      alert("チャッピーGPTへ送る文章をコピーしたよ🐾");
     })
     .catch(() => {
       alert("コピーできなかったよ。もう一度試してね🐾");
@@ -597,18 +585,17 @@ function goHome(){
   const welcome =
     document.getElementById("welcomeScreen");
 
-  const name = getUserName();
-
   main.classList.add("hidden");
   welcome.classList.remove("hidden");
 
   document.getElementById("welcomeText").textContent =
-    `🌈おかえり ${name}`;
+    "🌈 私にもどる対話ナビへ戻ります😊";
 
   setTimeout(() => {
     location.href = "index.html";
-  }, 5000);
+  }, 3000);
 }
+  
 </script>
 
 </body>
