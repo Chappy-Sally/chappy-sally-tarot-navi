@@ -61,7 +61,7 @@ textarea{
 }
 
 textarea{
-  min-height:72px;
+  min-height:90px;
   resize:vertical;
 }
 
@@ -167,6 +167,7 @@ button:disabled{
 
 .small-note{
   font-size:14px;
+  line-height:1.7;
   color:#9b7c5c;
   margin-top:4px;
 }
@@ -200,6 +201,7 @@ button:disabled{
   from{
     opacity:0;
   }
+
   to{
     opacity:1;
   }
@@ -246,14 +248,19 @@ button:disabled{
     やさしく整う時間⏳️
   </div>
 
+
+  <!-- 今の気持ち -->
   <div class="box">
+
     <p class="desc">
       これは占いではなく<br>
       今のあなたの気持ちを<br>
       やさしく整える対話です🌿
     </p>
 
-    <div class="label">今の気持ちを選んでね😊</div>
+    <div class="label">
+      今の気持ちを選んでね😊
+    </div>
 
     <select id="feelingSelect">
       <option value="">選択してください</option>
@@ -263,39 +270,72 @@ button:disabled{
       <option value="少し安心してる">少し安心してる</option>
     </select>
 
-    <div class="label">ひとこと追加したいとき</div>
-
-    <textarea
-      id="feelingInput"
-      placeholder="自由入力OK"
-    ></textarea>
   </div>
 
+
+  <!-- 自由質問 -->
   <div class="box">
 
     <div
       class="label"
       style="font-size:18px; font-weight:bold; color:#6b4b2a;"
     >
-      テーマを選んでね😊
+      🌱 チャッピーに聞いてみたいこと
     </div>
 
-    <select id="roleSelect" onchange="selectRole()">
+    <p class="small-note">
+      質問が決まっているときは、ここに書いてね😊<br>
+      チャッピーから聞かれた質問を貼り付けてもOKだよ🐾
+    </p>
+
+    <textarea
+      id="questionInput"
+      placeholder="例：私は本当は何を怖がっているのかな？"
+    ></textarea>
+
+  </div>
+
+
+  <!-- テーマから質問を選ぶ -->
+  <div class="box">
+
+    <div
+      class="label"
+      style="font-size:18px; font-weight:bold; color:#6b4b2a;"
+    >
+      テーマから質問を選んでもOK😊
+    </div>
+
+    <p class="small-note">
+      質問が思いつかないときは、テーマを選んでね🌈
+    </p>
+
+    <select
+      id="roleSelect"
+      onchange="selectRole()"
+    >
       <option value="">テーマを選ぶ</option>
       <option value="yasashiku">🌿 安心に戻る</option>
       <option value="kizuki">🌈 気づきをえる</option>
       <option value="modoru">✨ 本来の私に戻る</option>
     </select>
 
-    <div id="subCategoryArea" class="sub-row"></div>
+    <div
+      id="subCategoryArea"
+      class="sub-row"
+    ></div>
 
     <div
       id="questionBox"
       class="question-box hidden"
     ></div>
+
   </div>
 
+
+  <!-- カードを引く -->
   <div class="box">
+
     <div class="draw-row">
 
       <button
@@ -326,36 +366,57 @@ button:disabled{
     </div>
 
     <div class="small-note">
-      カテゴリーを選ぶとカードが引けるようになるよ🐾
+      自分で質問を書くか、テーマから質問を選ぶと<br>
+      カードが引けるようになるよ🐾
     </div>
+
   </div>
 
-  <div id="cardsArea" class="cards-area"></div>
 
-  <div id="copyArea" class="box hidden">
+  <div
+    id="cardsArea"
+    class="cards-area"
+  ></div>
+
+
+  <!-- コピー -->
+  <div
+    id="copyArea"
+    class="box hidden"
+  >
 
     <button
       class="btn-pink"
       onclick="copyMain()"
     >
-     チャッピーGPTへ送る文章をコピー🐾
+      チャッピーGPTへ送る文章をコピー🐾
     </button>
 
-  
   </div>
 
-  <div id="noticeArea" class="box hidden">
+
+  <!-- 注意 -->
+  <div
+    id="noticeArea"
+    class="box hidden"
+  >
+
     <div class="notice">しっくりこなかったら
 気がすむまでAIと話しても大丈夫😊
 
 答えを出さなくてもいいし
 そのまま対話しながらカードを引きなおしてもOKだよ🌈</div>
+
   </div>
 
 </div>
 
-<!-- HOMEへ戻る前の画面 -->
-<div id="welcomeScreen" class="hidden">
+
+<!-- メニューへ戻る前の画面 -->
+<div
+  id="welcomeScreen"
+  class="hidden"
+>
 
   <img
     src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/cs_ufufu.png"
@@ -363,14 +424,18 @@ button:disabled{
   >
 
   <div id="welcomeText"></div>
+
 </div>
+
 
 <!-- 質問集 -->
 <script src="tarot-questions.js"></script>
 
+
 <script>
 const tarotImageBase =
   "https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/tarot/";
+
 
 const cardFiles = [
   "00_The_Fool.png",
@@ -398,6 +463,7 @@ const cardFiles = [
   "22_Compass.png"
 ];
 
+
 const cardNames = {
   "00_The_Fool.png":"00 愚者（The Fool）",
   "01_The_Magician.png":"01 魔術師（The Magician）",
@@ -422,43 +488,58 @@ const cardNames = {
   "20_Judgement.png":"20 審判（Judgement）",
   "21_The_World.png":"21 世界（The World）",
   "22_Compass.png":"22 コンパス（Compass）"
-};  
+};
+
 
 let currentRole = "";
 let currentQuestion = "";
 let currentCards = [];
 
+
+/* テーマを選ぶ */
 function selectRole(){
-  currentRole = document.getElementById("roleSelect").value;
+  currentRole =
+    document.getElementById("roleSelect").value;
+
   currentQuestion = "";
 
-  disableDrawButtons();
+  const subArea =
+    document.getElementById("subCategoryArea");
 
-  const subArea = document.getElementById("subCategoryArea");
   subArea.innerHTML = "";
 
-  const questionBox = document.getElementById("questionBox");
+  const questionBox =
+    document.getElementById("questionBox");
+
   questionBox.classList.add("hidden");
   questionBox.textContent = "";
 
   if(!currentRole || !roleMap[currentRole]){
+    updateDrawButtons();
     return;
   }
 
-  Object.keys(roleMap[currentRole].categories).forEach(category => {
-    const btn = document.createElement("button");
+  Object
+    .keys(roleMap[currentRole].categories)
+    .forEach(category => {
+      const btn =
+        document.createElement("button");
 
-    btn.textContent = category;
-    btn.className = "btn-purple";
+      btn.textContent = category;
+      btn.className = "btn-purple";
 
-    btn.onclick = () => {
-      selectCategory(category, btn);
-    };
+      btn.onclick = () => {
+        selectCategory(category, btn);
+      };
 
-    subArea.appendChild(btn);
-  });
+      subArea.appendChild(btn);
+    });
+
+  updateDrawButtons();
 }
 
+
+/* カテゴリーを選ぶ */
 function selectCategory(category, clickedButton){
   document
     .querySelectorAll("#subCategoryArea button")
@@ -472,7 +553,9 @@ function selectCategory(category, clickedButton){
     roleMap[currentRole].categories[category];
 
   currentQuestion =
-    questions[Math.floor(Math.random() * questions.length)];
+    questions[
+      Math.floor(Math.random() * questions.length)
+    ];
 
   const questionBox =
     document.getElementById("questionBox");
@@ -480,22 +563,80 @@ function selectCategory(category, clickedButton){
   questionBox.classList.remove("hidden");
   questionBox.textContent = currentQuestion;
 
-  enableDrawButtons();
+  updateDrawButtons();
 }
 
+
+/* カードボタンを使えるようにする */
 function enableDrawButtons(){
   document.getElementById("draw1").disabled = false;
   document.getElementById("draw3").disabled = false;
 }
 
+
+/* カードボタンを使えなくする */
 function disableDrawButtons(){
   document.getElementById("draw1").disabled = true;
   document.getElementById("draw3").disabled = true;
 }
 
+
+/* 質問があるか確認する */
+function updateDrawButtons(){
+  const freeQuestion =
+    document
+      .getElementById("questionInput")
+      .value
+      .trim();
+
+  if(currentQuestion || freeQuestion){
+    enableDrawButtons();
+  }else{
+    disableDrawButtons();
+  }
+}
+
+
+/* 使用する質問を決める */
+function getQuestion(){
+  const freeQuestion =
+    document
+      .getElementById("questionInput")
+      .value
+      .trim();
+
+  if(freeQuestion){
+    return freeQuestion;
+  }
+
+  if(currentQuestion){
+    return currentQuestion;
+  }
+
+  return "（質問なし）";
+}
+
+
+/* 今の気持ちを取得する */
+function getFeeling(){
+  const selected =
+    document
+      .getElementById("feelingSelect")
+      .value
+      .trim();
+
+  return selected || "（特になし）";
+}
+
+
+/* カードを引く */
 function drawCards(count){
-  if(!currentQuestion){
-    alert("先にカテゴリーを選んでね🐾");
+  const question = getQuestion();
+
+  if(question === "（質問なし）"){
+    alert(
+      "質問を書くか、テーマから質問を選んでね🐾"
+    );
     return;
   }
 
@@ -505,12 +646,14 @@ function drawCards(count){
   cardsArea.innerHTML = "";
   currentCards = [];
 
-  const selected = [...cardFiles]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, count);
+  const selected =
+    [...cardFiles]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, count);
 
   selected.forEach(file => {
-    const reversed = Math.random() < 0.5;
+    const reversed =
+      Math.random() < 0.5;
 
     const card = {
       file,
@@ -519,13 +662,16 @@ function drawCards(count){
 
     currentCards.push(card);
 
-    const box = document.createElement("div");
+    const box =
+      document.createElement("div");
+
     box.className = "card-box";
 
-    const img = document.createElement("img");
+    const img =
+      document.createElement("img");
 
     img.src = tarotImageBase + file;
-    img.alt = file;
+    img.alt = cardNames[file] || file;
 
     if(reversed){
       img.classList.add("reversed");
@@ -537,42 +683,37 @@ function drawCards(count){
 
   document
     .getElementById("copyArea")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
   document
     .getElementById("noticeArea")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
+
+  cardsArea.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
 }
 
+
+/* カード名をコピー用に整える */
 function formatCard(card){
   const cardName =
     cardNames[card.file] ||
     card.file.replace(".png","");
 
   const position =
-    card.reversed ? "逆位置" : "正位置";
+    card.reversed
+      ? "逆位置"
+      : "正位置";
 
   return `${cardName}・${position}`;
 }
 
-function getFeeling(){
-  const selected =
-    document.getElementById("feelingSelect").value.trim();
 
-  const free =
-    document.getElementById("feelingInput").value.trim();
-
-  if(free){
-    return free;
-  }
-
-  if(selected){
-    return selected;
-  }
-
-  return "（特になし）";
-}
-
+/* チャッピーGPTへ送る文章をコピー */
 function copyMain(){
   if(currentCards.length === 0){
     alert("先にカードを引いてね🐾");
@@ -587,7 +728,7 @@ function copyMain(){
   text += `${getFeeling()}\n\n`;
 
   text += `【質問】\n`;
-  text += `${currentQuestion}\n\n`;
+  text += `${getQuestion()}\n\n`;
 
   text += `【カード】\n`;
 
@@ -600,13 +741,19 @@ function copyMain(){
   navigator.clipboard
     .writeText(text.trim())
     .then(() => {
-      alert("チャッピーGPTへ送る文章をコピーしたよ🐾");
+      alert(
+        "チャッピーGPTへ送る文章をコピーしたよ🐾"
+      );
     })
     .catch(() => {
-      alert("コピーできなかったよ。もう一度試してね🐾");
+      alert(
+        "コピーできなかったよ。もう一度試してね🐾"
+      );
     });
 }
 
+
+/* メニューへ戻る */
 function goHome(){
   const main =
     document.getElementById("mainContent");
@@ -624,7 +771,23 @@ function goHome(){
     location.href = "index.html";
   }, 3000);
 }
-  
+
+
+/* ページを開いたとき */
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const questionInput =
+      document.getElementById("questionInput");
+
+    questionInput.addEventListener(
+      "input",
+      updateDrawButtons
+    );
+
+    updateDrawButtons();
+  }
+);
 </script>
 
 </body>
