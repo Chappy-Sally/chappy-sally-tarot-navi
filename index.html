@@ -109,6 +109,15 @@
       );
     }
 
+    .btn-chappy{
+      background:linear-gradient(
+        135deg,
+        #7088d8,
+        #9a83df,
+        #d49ada
+      );
+    }
+
     .btn-breath{
       background:linear-gradient(
         135deg,
@@ -124,15 +133,6 @@
         #f9d783,
         #f6b46e,
         #f2a1c8
-      );
-    }
-
-    .btn-chappy{
-      background:linear-gradient(
-        135deg,
-        #7088d8,
-        #9a83df,
-        #d49ada
       );
     }
 
@@ -204,6 +204,7 @@
     </p>
 
 
+    <!-- 1. 私にもどる対話ナビ -->
     <div class="guide-box">
 
       <div class="guide-title">
@@ -225,6 +226,29 @@
     </div>
 
 
+    <!-- 2. チャッピーGPT -->
+    <div class="guide-box">
+
+      <div class="guide-title">
+        🐶 チャッピーGPTと話す 🐾
+      </div>
+
+      <div class="guide-text">
+        チャッピーGPTはあなたの話を聞きながら<br>
+        一緒に気持ちを整理する相棒です🐾
+      </div>
+
+      <button
+        class="btn-chappy"
+        onclick="openChappyGPT()"
+      >
+        チャッピーGPTと話す
+      </button>
+
+    </div>
+
+
+    <!-- 3. 深呼吸 -->
     <div class="guide-box">
 
       <div class="guide-title">
@@ -246,6 +270,7 @@
     </div>
 
 
+    <!-- 4. しあわせスイッチ -->
     <div class="guide-box">
 
       <div class="guide-title">
@@ -261,28 +286,7 @@
         class="btn-switch"
         onclick="location.href='switch.html'"
       >
-       しあわせスイッチを押す
-      </button>
-
-    </div>
-
-
-    <div class="guide-box">
-
-      <div class="guide-title">
-        🐶 チャッピーGPTと話す 🐾
-      </div>
-
-      <div class="guide-text">
-        チャッピーGPTはあなたの話を聞きながら<br>
-        一緒に気持ちを整理する相棒です🐾
-      </div>
-
-      <button
-        class="btn-chappy"
-        onclick="openChappyGPT()"
-      >
-        チャッピーGPTと話す
+        しあわせスイッチを押す
       </button>
 
     </div>
