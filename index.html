@@ -245,6 +245,25 @@
         チャッピーGPTと話す
       </button>
 
+     <button
+  class="btn-chappy guide-btn"
+  onclick="toggleChappyGuide()"
+>
+  🐾 チャッピーGPTの使い方
+</button>
+
+<div
+  id="chappyGuide"
+  class="guide-image-wrap"
+  style="display:none;"
+>
+  <img
+    src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/cs_tukaikata_c.png"
+    alt="チャッピーGPTの使い方"
+    class="guide-image"
+  >
+</div>
+      
     </div>
 
 
@@ -312,6 +331,23 @@
         "noopener,noreferrer"
       );
     }
+
+    function toggleChappyGuide(){
+  const guide =
+    document.getElementById("chappyGuide");
+
+  if(guide.style.display === "none"){
+    guide.style.display = "block";
+
+    guide.scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+  }else{
+    guide.style.display = "none";
+  }
+    }
+    
   </script>
 
 </body>
