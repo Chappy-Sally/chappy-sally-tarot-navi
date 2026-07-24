@@ -357,10 +357,10 @@ button:disabled{
       </button>
 
       <button
-        class="btn-orange"
-        onclick="goHome()"
-      >
-        🏠️ メニューへもどる
+  class="back-btn"
+  onclick="goBackMenu()"
+>
+  🏠 メニューにもどる
       </button>
 
     </div>
@@ -788,6 +788,20 @@ window.addEventListener(
     updateDrawButtons();
   }
 );
+
+ function goBackMenu(){
+  const params = new URLSearchParams(window.location.search);
+  const from = params.get("from");
+
+  if(from === "set"){
+    location.href =
+      "https://chappy-sally.github.io/chappy-sally-anshin-navi-set/";
+  }else{
+    location.href =
+      "https://chappy-sally.github.io/chappy-sally-tarot-navi/";
+  }
+ } 
+  
 </script>
 
 </body>
