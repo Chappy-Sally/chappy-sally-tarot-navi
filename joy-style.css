@@ -427,4 +427,11 @@ button:disabled{
     width:94%;
     font-size:16px;
   }
+
+  .after-note{
+  margin:14px auto 0;
+  color:#7b5b74;
+  font-size:15px;
+  line-height:1.8;
+  }
 }
