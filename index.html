@@ -34,26 +34,27 @@
       box-shadow:0 6px 18px rgba(0,0,0,0.08);
     }
 
-    h1{
-      margin:0 0 14px;
+    .app-title{
+      margin:0 0 10px;
       color:#6b4b2a;
-      font-size:29px;
-      line-height:1.45;
-    }
-
-    .app-subtitle{
-      margin:0 0 14px;
-      color:#6b4b2a;
-      line-height:1.6;
+      line-height:1.5;
       white-space:nowrap;
       container-type:inline-size;
     }
 
-    .app-subtitle span{
-      font-size:min(14px, 2.8vw);
-      font-size:min(14px, 3.7cqw);
-      font-weight:bold;
+    .app-title span{
+      font-size:min(22px, 4vw);
+      font-size:min(22px, 4.8cqw);
+      font-weight:800;
       white-space:nowrap;
+    }
+
+    .world-title{
+      margin:0 0 16px;
+      color:#7b5b39;
+      font-size:clamp(12px, 3.4vw, 16px);
+      font-weight:600;
+      line-height:1.65;
     }
 
     .hero-img{
@@ -233,10 +234,6 @@
         padding:20px 12px 24px;
       }
 
-      h1{
-        font-size:24px;
-      }
-
       .desc{
         font-size:15px;
       }
@@ -267,12 +264,12 @@
 
   <div class="main-card">
 
-    <h1>
+    <h1 class="app-title"><span>AI×タロット｜役割手放しワークアプリ</span></h1>
+
+    <p class="world-title">
       🐶 チャッピー＆サリーの<br>
       私にもどる対話ナビ🌿
-    </h1>
-
-    <p class="app-subtitle"><span>AI×タロット｜役割手放しワークアプリ</span></p>
+    </p>
 
     <img
       src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_hyousi.png"
